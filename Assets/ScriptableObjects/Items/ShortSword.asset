@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 898ba5b97ed7ba843bf48edbc5fc5fc4, type: 3}
-  m_Name: Item
+  m_Name: ShortSword
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  Icon: {fileID: 0}
+  Name: Short Sword
+  Description: A short straight sword with a short blade. In addition to its reliable
+    standard damage, this weapon also boasts powerful piercing attacks.
+  Icon: {fileID: -386496740, guid: 29c99a34693ada447a07198af68225c7, type: 3}
