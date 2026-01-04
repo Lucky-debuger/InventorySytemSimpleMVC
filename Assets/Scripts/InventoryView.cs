@@ -49,6 +49,7 @@ public class InventoryView : MonoBehaviour
             }
         }
         CreateSlot(item);
+        
     }
 
     private void CreateSlot(ItemModel item)
@@ -64,9 +65,34 @@ public class InventoryView : MonoBehaviour
         slotViews.Add(slotView);
     }
 
-    private void HandleSlotClicked(ItemModel itemModel)
+    private void HandleSlotClicked(SlotView slotView)
     {
-        inventoryController.SelectSlot(itemModel);
+        inventoryController.SelectSlot(slotView.Item);
+        ShowDescription(slotView);
+        HighlightSlot(slotView);
     }
+
+    private void ShowDescription(SlotView slotView)
+    {
+        descriptionText.text = slotView.Item.Description;
+        descriptionIcon.sprite = slotView.Item.Icon;
+    }
+
+    private void HighlightSlot(SlotView slotView)
+    {
+        foreach (SlotView slot in slotViews)
+        {
+            if (slot == slotView)
+            {
+                slot.Highlight();
+            }
+
+            else
+            {
+                slot.SetDefaultColor();
+            }
+        }
+        
+    } 
 
 }

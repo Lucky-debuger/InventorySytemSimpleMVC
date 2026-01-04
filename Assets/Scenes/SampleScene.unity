@@ -2688,6 +2688,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -386496740, guid: 29c99a34693ada447a07198af68225c7, type: 3}
     - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
