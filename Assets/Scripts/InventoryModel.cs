@@ -10,4 +10,9 @@ public class InventoryModel : ScriptableObject
     {
         items.TryAdd(item, 1);
     }
+
+    public void DeleteItem(ItemModel item)
+    {
+        items.Remove(item);
+    }
 }

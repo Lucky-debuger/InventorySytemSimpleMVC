@@ -1,52 +1,55 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SlotView : MonoBehaviour
+public class SlotView : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private ItemModel item; // item можно сделать так public ItemModel Item { get; private set; } . Разобраться зачем
+    [Header("Data")]
+    [SerializeField] private ItemModel item;
+
+    [Header("UI")]
     [SerializeField] private TMP_Text itemCount;
 
     [SerializeField] private TMP_Text itemName;
-    [SerializeField] private TMP_Text description;
+    [SerializeField] private TMP_Text descriptionText;
     [SerializeField] private Image itemIcon;
     [SerializeField] private Image descriptionIcon;
 
+    public ItemModel Item => item;
 
-    private void Awake() // Убрать!
-    {
-        description = GameObject.Find("DescriptionText").GetComponent<TMP_Text>();
-        descriptionIcon = GameObject.Find("DescriptionIcon").GetComponent<Image>();
-        Render();
-    }
-    private int _itemCount = 1;
+    public int ItemCount {get; private set;} = 1;
+    
+    public event Action<ItemModel> OnSlotClicked;
 
     public void SetItem(ItemModel itemModel)
     {
         item = itemModel;
     }
-
-    public ItemModel GetItem()
-    {
-        return item;
-    }
-
     public void Render()
     {
-        if (item == null) return;
-
         itemName.text = item.Name;
         itemIcon.sprite = item.Icon;
-        description.text = item.Description;
+        descriptionText.text = item.Description;
         descriptionIcon.sprite = item.Icon;
-        itemCount.text = _itemCount.ToString();
-        
+        itemCount.text = ItemCount.ToString();
     }
 
-    public void IncreaseCount()
+    public void SetCount(int count)
     {
-        _itemCount += 1;
-        itemCount.text = _itemCount.ToString();
+        ItemCount = count;
+        itemCount.text = ItemCount.ToString();
     }
 
+    public void SetupDescriptionPanel(TMP_Text description, Image Icon)
+    {
+        descriptionText = description;
+        descriptionIcon = Icon;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        OnSlotClicked?.Invoke(Item);
+    }
 }

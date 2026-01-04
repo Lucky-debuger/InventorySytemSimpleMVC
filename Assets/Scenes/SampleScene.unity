@@ -124,17 +124,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 572183244173262531, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
   m_PrefabInstance: {fileID: 2097835435}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &31723216 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6629772768022687802, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
-  m_PrefabInstance: {fileID: 2097835435}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d080b57cb0a504c96e05c9899deccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &102433655
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +328,8 @@ MonoBehaviour:
   inventoryController: {fileID: 247056860}
   slot: {fileID: 6593190443616913864, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
   inventoryPanel: {fileID: 1543274368}
+  descriptionText: {fileID: 1909420301}
+  descriptionIcon: {fileID: 401826139}
 --- !u!1 &279061684
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,33 +914,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 572183244173262531, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
   m_PrefabInstance: {fileID: 5939611797946305519}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &425975914 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6629772768022687802, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
-  m_PrefabInstance: {fileID: 5939611797946305519}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d080b57cb0a504c96e05c9899deccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &570944522 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 572183244173262531, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
   m_PrefabInstance: {fileID: 1473447768}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &570944523 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6629772768022687802, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
-  m_PrefabInstance: {fileID: 1473447768}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d080b57cb0a504c96e05c9899deccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &637564554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,7 +1457,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1224940985}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 247056860}
+        m_TargetAssemblyTypeName: InventoryController, Assembly-CSharp
+        m_MethodName: DeleteItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1224940985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1615,6 +1596,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1449805750524219728, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_text
+      value: Hand Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449805750524219728, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_fontSize
+      value: 21.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487621590128434953, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -226204283, guid: 29c99a34693ada447a07198af68225c7, type: 3}
     - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1642,10 +1635,10 @@ PrefabInstance:
     - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 570944523}
+      objectReference: {fileID: 11400000, guid: 2d2d9e174855d1f43865746a155409a2, type: 2}
     - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: SlotView, Assembly-CSharp
+      value: ItemModel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6593190443616913864, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_Name
@@ -1667,6 +1660,10 @@ PrefabInstance:
       propertyPath: descriptionIcon
       value: 
       objectReference: {fileID: 401826139}
+    - target: {fileID: 6629772768022687802, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: descriptionText
+      value: 
+      objectReference: {fileID: 1909420301}
     - target: {fileID: 6629772768022687802, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: _descriptionIcon
       value: 
@@ -2505,6 +2502,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1449805750524219728, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_text
+      value: Astrologer's Staff
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449805750524219728, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_fontSize
+      value: 15.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449805750524219728, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_margin.x
+      value: 4.6582184
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449805750524219728, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_margin.z
+      value: 3.9230843
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487621590128434953, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -885689627, guid: 29c99a34693ada447a07198af68225c7, type: 3}
     - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2532,10 +2549,10 @@ PrefabInstance:
     - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 31723216}
+      objectReference: {fileID: 11400000, guid: d20a6d01cc5459542b96acf354b9ffe7, type: 2}
     - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: SlotView, Assembly-CSharp
+      value: ItemModel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6593190443616913864, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_Name
@@ -2557,6 +2574,10 @@ PrefabInstance:
       propertyPath: descriptionIcon
       value: 
       objectReference: {fileID: 401826139}
+    - target: {fileID: 6629772768022687802, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: descriptionText
+      value: 
+      objectReference: {fileID: 1909420301}
     - target: {fileID: 6629772768022687802, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: _descriptionIcon
       value: 
@@ -2654,6 +2675,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1449805750524219728, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_text
+      value: Short Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449805750524219728, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_fontSize
+      value: 21.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487621590128434953, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -386496740, guid: 29c99a34693ada447a07198af68225c7, type: 3}
     - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2681,10 +2714,10 @@ PrefabInstance:
     - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 425975914}
+      objectReference: {fileID: 11400000, guid: 5840112692518544ca2cd5af250534ba, type: 2}
     - target: {fileID: 5975907913061538477, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: SlotView, Assembly-CSharp
+      value: ItemModel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6593190443616913864, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: m_Name
@@ -2710,6 +2743,10 @@ PrefabInstance:
       propertyPath: descriptionIcon
       value: 
       objectReference: {fileID: 401826139}
+    - target: {fileID: 6629772768022687802, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
+      propertyPath: descriptionText
+      value: 
+      objectReference: {fileID: 1909420301}
     - target: {fileID: 6629772768022687802, guid: 688a3666051beed41ac7f3ac61d18704, type: 3}
       propertyPath: _descriptionIcon
       value: 

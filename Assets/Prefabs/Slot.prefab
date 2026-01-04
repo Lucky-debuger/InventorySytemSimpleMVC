@@ -486,6 +486,6 @@ MonoBehaviour:
   item: {fileID: 0}
   itemCount: {fileID: 5401115928188633388}
   itemName: {fileID: 1449805750524219728}
-  description: {fileID: 0}
+  descriptionText: {fileID: 0}
   itemIcon: {fileID: 3487621590128434953}
   descriptionIcon: {fileID: 0}

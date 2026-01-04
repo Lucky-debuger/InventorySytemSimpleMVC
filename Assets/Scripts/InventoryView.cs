@@ -1,26 +1,50 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryView : MonoBehaviour
 {
     [SerializeField] InventoryController inventoryController;
     [SerializeField] GameObject slot;
     [SerializeField] Transform inventoryPanel;
+    [SerializeField] TMP_Text descriptionText;
+    [SerializeField] Image descriptionIcon;
 
     private List<SlotView> slotViews = new List<SlotView>();
 
     private void Awake()
     {
-        inventoryController.OnItemAdded += DrawSlots;
+        inventoryController.OnItemAdded += UpdateOrCreateSlots;
+        inventoryController.OnItemDeleted += DeleteSlot;
     }
 
-    private void DrawSlots(ItemModel item)
+    private void OnDestroy()
     {
-        foreach (SlotView slot in slotViews)
+        inventoryController.OnItemAdded -= UpdateOrCreateSlots;
+        inventoryController.OnItemDeleted -= DeleteSlot;
+    }
+
+    private void DeleteSlot(ItemModel item)
+    {
+        for (int i = 0; i < slotViews.Count; i++)
         {
-            if (slot.GetItem() == item)
+            if (slotViews[i].Item == item)
             {
-                slot.IncreaseCount();
+                Destroy(slotViews[i].gameObject);
+                slotViews.RemoveAt(i);
+                return;
+            }
+        }
+    }
+
+    private void UpdateOrCreateSlots(ItemModel item)
+    {
+        foreach (SlotView slotView in slotViews)
+        {
+            if (slotView.Item == item)
+            {
+                slotView.SetCount(slotView.ItemCount+1);
                 return;
             }
         }
@@ -30,8 +54,19 @@ public class InventoryView : MonoBehaviour
     private void CreateSlot(ItemModel item)
     {
         SlotView slotView = Instantiate(slot, inventoryPanel).GetComponent<SlotView>();
+
+        slotView.SetupDescriptionPanel(descriptionText, descriptionIcon);
         slotView.SetItem(item);
         slotView.Render();
-        slotViews.Add(slotView); // Как добавить в определенное место?
+
+        slotView.OnSlotClicked += HandleSlotClicked;
+
+        slotViews.Add(slotView);
     }
+
+    private void HandleSlotClicked(ItemModel itemModel)
+    {
+        inventoryController.SelectSlot(itemModel);
+    }
+
 }

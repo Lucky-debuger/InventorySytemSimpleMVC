@@ -5,24 +5,29 @@ public class InventoryController : MonoBehaviour
 {
     [SerializeField] private InventoryModel inventoryModel;
     
-    private ItemModel _selectSlot;
+    private ItemModel _selectedItem;
     
     public event Action<ItemModel> OnItemAdded;
-    public event Action OnItemDeleted;
-    
-    public void SelectSlot(SlotView slot)
+    public event Action<ItemModel> OnItemDeleted;
+
+    public void SelectSlot(ItemModel item)
     {
-        _selectSlot = slot.GetItem();
+        _selectedItem = item;
     }
 
     public void AddSelectedItem()
     {
-        inventoryModel.AddItem(_selectSlot);
-        OnItemAdded?.Invoke(_selectSlot);
+        if (_selectedItem == null) return;
+
+        inventoryModel.AddItem(_selectedItem);
+        OnItemAdded?.Invoke(_selectedItem);
     }
 
-    public void DeleteItem(ItemModel item)
+    public void DeleteItem()
     {
-        
+        if (_selectedItem == null) return;
+
+        inventoryModel.DeleteItem(_selectedItem);
+        OnItemDeleted?.Invoke(_selectedItem);
     }
 }
